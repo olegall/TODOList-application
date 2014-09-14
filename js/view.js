@@ -11,11 +11,11 @@
 
 		var taskText;
 		if (container == "ordinary_list"){
-			taskText = model.task.text();
+			taskText = model.task.text(container);
 		}
 		else
 		if (container == "priority_list"){
-			taskText = model.advancedTask.text();
+			taskText = model.advancedTask.text(container);
 		}		
 
 		var template = 
