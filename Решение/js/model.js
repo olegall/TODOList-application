@@ -1,7 +1,4 @@
 ﻿
-
-
-	// Класс Model
 	function Model() {
 	}
 	
@@ -10,9 +7,6 @@
 	
 	Model.prototype.task = new Object();
 	Model.prototype.advancedTask = new Object();
-	
-	
-
 	
 	Model.prototype.task.text = function(container){
 		return $("."+container+" .input_value").val();
@@ -34,14 +28,6 @@
 		console.log(taskIndex);	
 	}	
 	
-	
-
-
-
-
-
-
-	
 	Model.prototype.advancedTask.__proto__ = Model.prototype.task;
 	
 	Model.prototype.advancedTask.time = function(){
@@ -49,7 +35,6 @@
 	}	
 	
 	Model.prototype.advancedTask.assignNotification = function (notificationText){
-
 		var notification = notificationText;
 		function notify() {
 			new Notification(notification);
@@ -58,11 +43,6 @@
 		times.push(setTimeout(notify, Model.prototype.advancedTask.time()));
 		console.log(times);
 	}
-	
-
-
-	
-	
 	
 	Model.prototype.emptyInput = function(event){
 		$(event.target).attr("value","");
@@ -75,13 +55,11 @@
 			$(".ordinary_list").droppable({ disabled: true });
 			$(".priority_list").droppable({ disabled: false });
 		}
-		
 		if ($(event.target).parent().attr("class").split(" ")[0] == "priority_list"){
 			droppableList = ".ordinary_list";
 			$(".priority_list").droppable({ disabled: true });
 			$(".ordinary_list").droppable({ disabled: false });
 		}
-		
 		$(droppableList).droppable({
 			accept: ".item",
 			hoverClass: "ui-state-active",
@@ -96,16 +74,8 @@
 				} else {
 					Model.prototype.advancedTask.assignNotification($("#draggable").text().replace("Удалить",""));
 				}
-				
 			}
 		});
 	}
-	
-	
-	
-	
+
 	var model = new Model();
-
-
-	
-	
